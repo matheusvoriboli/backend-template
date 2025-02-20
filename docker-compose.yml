@@ -1,0 +1,11 @@
+services:
+  pg: # Service that I want to execute -> only postgres
+    image: bitnami/postgresql:latest # Identify that I want to use the latest pg image
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=wise-path
+    volumes:
+      - './docker:/docker-entrypoint-initdb.d'
